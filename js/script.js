@@ -43,6 +43,9 @@ function setupGame() {
 
     let i = 0;
 
+    let allBomb = []
+    let allSave = []
+
     while (i < 17) {
         let randomNumber = Math.floor(Math.random() * (cellsCount - 1) + 1);
         if (!arr.includes(randomNumber)) {
@@ -50,7 +53,6 @@ function setupGame() {
             i++
         }
     }
-
 
     console.log(arr)
 
@@ -71,19 +73,36 @@ function setupGame() {
 
         box.addEventListener('click', changeColor);
 
+        allBomb = [...document.querySelectorAll('.box-bomb')]
+        allSave = [...document.querySelectorAll('.box-save')]
 
-
-    }
-
-    function changeColor() {
-        if (box.classList.contains('box-save')) {
-            this.classList.add('selected-save')
-        } else {
-            box.classList.add('selected-bomb')
-        }
     }
 
     
+
+    function changeColor() {
+
+        let endGame = document.createElement('div');
+        endGame.classList.add('end-game');
+        endGame.innerHTML = `<div><h3> Hai perso</h3></div>`
+
+        if (this.classList.contains('box-save')) {
+            this.classList.add('selected-save');
+        } else {
+            mainSquare.append(endGame)
+
+            for (let i = 0; i < allBomb.length; i++) {
+                allBomb[i].classList.add('selected-bomb');
+            }
+
+            for (let i = 0; i < allSave.length; i++) {
+                allSave[i].classList.add('selected-save');
+                
+            }
+        }
+    }
+     
+
 }
 
 

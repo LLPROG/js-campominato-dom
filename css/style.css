@@ -54,7 +54,6 @@ main {
 }
 
 #square {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,6 +63,8 @@ main {
     height: 500px;
 
     outline: 2px solid black;
+
+    position: relative;
 }
 
 /* javascipt class */
@@ -78,13 +79,24 @@ main {
     cursor: cell;
 }
 
-.box.selected-save {
+.selected-save {
     background: white;
-
 }
 
-
-.box.selected-bomb {
+.selected-bomb {
     background: black;
+}
 
+.end-game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+
+    background-color: gray;
 }
