@@ -80,14 +80,15 @@ main {
 }
 
 .selected-save {
-    background: white;
+    background: rgb(0, 255, 255);
 }
 
 .selected-bomb {
-    background: black;
+    background: rgb(255, 0, 0);
 }
 
-.end-game {
+.loose-game,
+.win-game {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -97,6 +98,13 @@ main {
     height: 100px;
     text-align: center;
     line-height: 100px;
+}
 
+.loose-game {
     background-color: gray;
+}
+
+.win-game {
+    background-color: rgb(147, 32, 241);
+    color: white;
 }
